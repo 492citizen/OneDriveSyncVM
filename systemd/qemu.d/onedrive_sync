@@ -1,0 +1,2 @@
+args="-drive file=<Path-to-Image.img> -cpu host -smp 1 -netdev bridge,br=virbr0,id=net0 -device e1000,netdev=net0 -monitor telnet::7100,server,nowait,nodelay"
+haltcmd="echo 'system_powerdown' | nc localhost 7100"

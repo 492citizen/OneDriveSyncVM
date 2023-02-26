@@ -1,0 +1,13 @@
+[Unit]
+Description=QEMU OneDrive sync VM
+After=network-online.target
+
+[Service]
+Environment="haltcmd=kill -INT $MAINPID"
+EnvironmentFile=/etc/conf.d/qemu.d/%i
+ExecStart=/usr/bin/qemu-system-x86_64 -name %i -enable-kvm -m 2G -nographic $args
+ExecStop=/usr/bin/bash -c ${haltcmd}
+ExecStop=/usr/bin/bash -c 'while nc localhost 7100; do sleep 1; done'
+
+[Install]
+WantedBy=multi-user.target
