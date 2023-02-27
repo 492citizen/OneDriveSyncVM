@@ -9,8 +9,12 @@ This is accomplished by running a Samba share on the directory where OneDrive is
 
 The machine is connected to the host via a network bridge and is not accessible from other computers on your network.
 
-### Files & Directories
-The systemd directory contains whatever you need to set up a systemd process to automatically run the virtual machine on startup. The .service file belongs in /etc/systemd/system.
+## Windows
+
+Depending on your Windows version you may need to edit the qemu-system launch commands. For Windows 11 you will need to pass a BIOS file to the command. You can usually find one under /user/share/edk2/x64/OVMF.fd
+
+## Files & Directories
+The systemd directory contains whatever you need to set up a systemd process to automatically run the virtual machine on startup and mount it. The .service file belongs in /etc/systemd/system.
 The qemu.d directory contains configurations for all your systemd-constrolled virtual machines and belongs in /etc/conf.d/
 
 The WindowsConfig directory has some .reg files for different purposes. enable_onedrive.reg for instance was only needed when I tried running OneDrive in a Tiny10 / Tiny11 machine where it is disabled by default.

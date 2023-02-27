@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount VM Smaba share
+
+[Mount]
+What=//<Machine-IP>/<Samba-Path>
+Where=/mnt/onedrive
+Options=_netdev,username=<Samba-Username>,password=<Samba-Password>,iocharset=utf8,rw,noauto,file_mode=0777,dir_mode=0777,uid=1000
+Type=cifs
+TimeoutSec=30
+
+[Install]
+WantedBy=multi-user.target

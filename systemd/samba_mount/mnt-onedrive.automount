@@ -1,0 +1,8 @@
+[Unit]
+Description=Automount onedrive
+
+[Automount]
+Where=/mnt/onedrive
+
+[Install]
+WantedBy=multi-user.target
